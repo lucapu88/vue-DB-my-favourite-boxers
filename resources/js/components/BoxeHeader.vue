@@ -6,7 +6,7 @@
                     <img src="https://www.cinematographe.it/wp-content/uploads/2020/03/Il-grande-match-cover.jpg">
                 </div>
                 <div class="col-sm-6 text-right mt-3">
-                    <h1>My top ten</h1>
+                    <h1>My 10 favorite boxers</h1>
                 </div>
             </div>
         </div>
@@ -17,10 +17,9 @@
     @import '../../sass/variables';
     $headerHeight: 80px;
     .boxe-header {
-        @include background-rgba;
+        background-color: black;
         height: $headerHeight;
         line-height: $headerHeight;
-        font-family: 'Kaushan Script', cursive;
         position: fixed;
         top: 0;
         width: 100%;

@@ -1,11 +1,24 @@
 <template>
-    <div class="card boxerContainer mt-4" style="width: 25rem;">
+    <!-- <div class="card boxerContainer mt-4" style="width: 25rem;">
         <img :src="boxer.poster" class="card-img-top" alt="">
         <div class="card-body">
             <h4 class="card-title">{{this.boxer.name}}</h4>
             <p class="card-text">{{this.boxer.birthday}}</p>
-            <p class="card-text description">{{this.boxer.description}}</p>
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <p class="card-text description">{{this.boxer.description}}</p>    
+       </div>
+    </div> --> 
+    <div class="card boxerContainer mb-3" >
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img :src="boxer.poster" class="card-img" :alt="boxer.name +' '+'photo'">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.boxer.name}}</h5>
+                    <p class="card-text">{{this.boxer.birthday}}</p>
+                    <p class="card-text">{{this.boxer.description}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -22,6 +35,10 @@
     .boxerContainer {
         padding: 10px;
         margin: 0 20px;
+        img {
+            height: 450px;
+            width: 350px;
+        }
         @include background-rgba;
         .description {
             padding: 5px;

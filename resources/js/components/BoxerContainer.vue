@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="container-fluid boxers">
         <div class="row">
-            <div class="col-12 boxer-container">
+            <div class="col-12 boxer-contain">
                 <boxerT v-for="(boxer, index) in boxers" :key='index' :boxer='boxer'></boxerT>
             </div>
         </div>
@@ -28,10 +28,22 @@
 </script>
 
 <style lang="scss" scoped>
-    .boxer-container {
-        margin-top: 100px;
-        display: flex;
-        flex-wrap: wrap;
+    .boxers {
+        background-image: url('https://images5.alphacoders.com/798/thumb-1920-798026.jpg');
+        background-repeat: no-repeat;
+        background-position: top;
+        position: fixed;
+        height: 100vh;
+        overflow-y: scroll;
+        .boxer-contain {
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
     }
+    .boxers::-webkit-scrollbar {
+        display: none;
+    }
+
 
 </style>
