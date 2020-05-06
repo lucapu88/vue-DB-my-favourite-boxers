@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="https://www.cinematographe.it/wp-content/uploads/2020/03/Il-grande-match-cover.jpg">
+                    <img src="https://i.dlpng.com/static/png/339174_preview.png">
                 </div>
                 <div class="col-sm-6 text-right mt-3">
                     <h1>My 10 favorite boxers</h1>

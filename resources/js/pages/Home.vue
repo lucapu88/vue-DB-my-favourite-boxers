@@ -24,6 +24,6 @@
   @import '../../sass/general';
   .boxer-container {
     // @include  colorGradient( $primary-color, $secondary-color, $tertiary-color);
-   
+
   }
 </style>

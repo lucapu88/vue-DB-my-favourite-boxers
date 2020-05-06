@@ -1918,6 +1918,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1931,8 +1932,17 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var self = this;
     axios.get("/api/boxers").then(function (response) {
+      //vado a richiamare gli elementi del mo database convertiti in una sorta di API
       self.boxers = response.data;
     });
+  },
+  methods: {
+    goTop: function goTop() {
+      //al click viene richiamata questa funzione
+      var goTop = document.getElementById('boxe'); //racchiudo in una variabile l'id del contenitore padre
+
+      goTop.scrollTop = 0; //riporto il contenitore in posizione 0 sull'asse Y
+    }
   }
 });
 
@@ -1947,14 +1957,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -6572,7 +6574,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".boxers[data-v-6c9d7358] {\n  background-image: url(\"https://images5.alphacoders.com/798/thumb-1920-798026.jpg\");\n  background-repeat: no-repeat;\n  background-position: top;\n  position: fixed;\n  height: 100vh;\n  overflow-y: scroll;\n}\n.boxers .boxer-contain[data-v-6c9d7358] {\n  margin-top: 100px;\n  display: flex;\n  flex-wrap: wrap;\n}\n.boxers[data-v-6c9d7358]::-webkit-scrollbar {\n  display: none;\n}", ""]);
+exports.push([module.i, ".boxers[data-v-6c9d7358] {\n  background-image: url(\"https://images5.alphacoders.com/798/thumb-1920-798026.jpg\");\n  background-repeat: no-repeat;\n  background-position: top;\n  position: fixed;\n  height: 100vh;\n  overflow-y: scroll;\n}\n.boxers .boxer-contain[data-v-6c9d7358] {\n  margin-top: 100px;\n  display: flex;\n  flex-wrap: wrap;\n}\n.boxers .boxer-contain .topBtn[data-v-6c9d7358] {\n  position: fixed;\n  bottom: 5px;\n  right: 25px;\n  padding: 10px;\n  font-size: 20px;\n  color: #C80303;\n  border: 2px solid #C80303;\n  background-color: black;\n}\n.boxers .boxer-contain .topBtn[data-v-6c9d7358]:hover {\n  cursor: pointer;\n  color: white;\n}\n.boxers[data-v-6c9d7358]::-webkit-scrollbar {\n  display: none;\n}", ""]);
 
 // exports
 
@@ -6591,7 +6593,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "*[data-v-c0089872] {\n  color: white;\n  font-family: \"Righteous\", cursive;\n}\n.boxerContainer[data-v-c0089872] {\n  padding: 10px;\n  margin: 0 20px;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.boxerContainer img[data-v-c0089872] {\n  height: 450px;\n  width: 350px;\n}\n.boxerContainer .description[data-v-c0089872] {\n  padding: 5px;\n  height: 180px;\n  overflow-y: auto;\n}\n\n/* width */\n.description[data-v-c0089872]::-webkit-scrollbar {\n  width: 11px;\n}\n\n/* Track */\n.description[data-v-c0089872]::-webkit-scrollbar-track {\n  box-shadow: inset 0 0 5px #CBCBC9;\n  border-radius: 10px;\n}\n\n/* Handle */\n.description[data-v-c0089872]::-webkit-scrollbar-thumb {\n  background: Black;\n  border-radius: 10px;\n}\n\n/* Handle on hover */\n.description[data-v-c0089872]::-webkit-scrollbar-thumb:hover {\n  background: #DB1E29;\n}", ""]);
+exports.push([module.i, "*[data-v-c0089872] {\n  color: white;\n  font-family: \"Righteous\", cursive;\n}\n.boxerContainer[data-v-c0089872] {\n  padding: 10px;\n  margin: 0 20px;\n  font-size: 17px;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.boxerContainer img[data-v-c0089872] {\n  height: 450px;\n  width: 350px;\n}\n.boxerContainer .description[data-v-c0089872] {\n  padding: 5px;\n  height: 180px;\n  overflow-y: auto;\n}\n\n/* width */\n.description[data-v-c0089872]::-webkit-scrollbar {\n  width: 11px;\n}\n\n/* Track */\n.description[data-v-c0089872]::-webkit-scrollbar-track {\n  box-shadow: inset 0 0 5px #CBCBC9;\n  border-radius: 10px;\n}\n\n/* Handle */\n.description[data-v-c0089872]::-webkit-scrollbar-thumb {\n  background: Black;\n  border-radius: 10px;\n}\n\n/* Handle on hover */\n.description[data-v-c0089872]::-webkit-scrollbar-thumb:hover {\n  background: #DB1E29;\n}", ""]);
 
 // exports
 
@@ -38185,8 +38187,7 @@ var staticRenderFns = [
           _c("div", { staticClass: "col-sm-6" }, [
             _c("img", {
               attrs: {
-                src:
-                  "https://www.cinematographe.it/wp-content/uploads/2020/03/Il-grande-match-cover.jpg"
+                src: "https://i.dlpng.com/static/png/339174_preview.png"
               }
             })
           ]),
@@ -38220,18 +38221,37 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid boxers" }, [
-    _c("div", { staticClass: "row" }, [
-      _c(
-        "div",
-        { staticClass: "col-12 boxer-contain" },
-        _vm._l(_vm.boxers, function(boxer, index) {
-          return _c("boxerT", { key: index, attrs: { boxer: boxer } })
-        }),
-        1
-      )
-    ])
-  ])
+  return _c(
+    "div",
+    { staticClass: "container-fluid boxers", attrs: { id: "boxe" } },
+    [
+      _c("div", { staticClass: "row" }, [
+        _c(
+          "div",
+          { staticClass: "col-12 boxer-contain" },
+          [
+            _vm._l(_vm.boxers, function(boxer, index) {
+              return _c("boxerT", { key: index, attrs: { boxer: boxer } })
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "topBtn rounded-pill",
+                on: {
+                  click: function($event) {
+                    return _vm.goTop()
+                  }
+                }
+              },
+              [_vm._v("GO TOP")]
+            )
+          ],
+          2
+        )
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38266,7 +38286,7 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card-body" }, [
-          _c("h5", { staticClass: "card-title" }, [
+          _c("h4", { staticClass: "card-title" }, [
             _vm._v(_vm._s(this.boxer.name))
           ]),
           _vm._v(" "),
