@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('boxers', 'Api\BoxerController@index');
+Route::get('matches', 'Api\BoxerController@matches');

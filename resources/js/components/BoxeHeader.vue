@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src="https://i.dlpng.com/static/png/339174_preview.png">
+                    <img src="https://www.dangertrainingcenter.it/wp-content/uploads/2018/06/blog-boxe.png">
                 </div>
                 <div class="col-sm-6 text-right mt-3">
                     <h1>My 10 favorite boxers</h1>
@@ -25,7 +25,8 @@
         width: 100%;
         z-index: 1000;
         img {
-            height: 60px;
+            height: 75px;
+            width: 95px;
         }
     }
 </style>

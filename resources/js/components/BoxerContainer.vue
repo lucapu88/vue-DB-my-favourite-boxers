@@ -23,6 +23,7 @@
             let self = this;
             axios.get("/api/boxers").then(function(response){  //vado a richiamare gli elementi del mo database convertiti in una sorta di API
                 self.boxers = response.data;
+                // console.log(self.boxers); 
             });
         },
          methods: {
