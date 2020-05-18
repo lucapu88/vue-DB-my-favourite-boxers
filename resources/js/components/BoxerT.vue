@@ -1,5 +1,5 @@
 <template>
-    <div class="card boxerContainer mb-3" >
+    <div class="card boxerContainer mb-3">
         <div class="row no-gutters">
             <div class="col-md-4">
                 <img :src="boxer.poster" class="card-img" :alt="boxer.name +' '+'photo'">
@@ -9,7 +9,7 @@
                     <h4 class="card-title">{{this.boxer.name}}</h4>
                     <p class="card-text">{{this.boxer.birthday}}</p>
                     <p class="card-text">{{this.boxer.description}}</p>
-                    <match v-for="(match, index) in matches" :key='index' :match='match'></match>
+                    <!-- <match v-for="(match, index) in matches" :key='index' :match='match'></match> -->
                 </div>
             </div>
         </div>
@@ -17,23 +17,23 @@
 </template>
 
 <script>
-    import Match from './Match';
+    // import Match from './Match';
     export default {
-         components: {
-            Match
-        },
+        //  components: {
+        //     Match
+        // },
         props: ['boxer'],
          data () {
             return {
-                matches: [],
+                // matches: [],
             }
         },
         mounted() {
-            let that = this;
-            axios.get("/api/matches").then(function(response){
-                that.matches = response.data;
-                // console.log(that.matches);
-            });
+            // let that = this;
+            // axios.get("/api/matches").then(function(response){
+            //     that.matches = response.data;
+            //     console.log(that.matches);
+            // });
         },
     };
 </script>

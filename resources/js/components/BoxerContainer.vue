@@ -2,7 +2,8 @@
     <div class="container-fluid boxers" id="boxe">
         <div class="row">
             <div class="col-12 boxer-contain" >
-                <boxerT v-for="(boxer, index) in boxers" :key='index' :boxer='boxer'></boxerT>
+                <boxerT v-for="(boxer, index) in boxers" :key='index' :boxer='boxer'><div v-for="(match, index) in matches" :key='index' :match='match'></div></boxerT>
+                
                 <button class="topBtn rounded-pill" v-on:click="goTop()">GO TOP</button>
             </div>
         </div>
@@ -10,13 +11,16 @@
 </template>
 <script>
     import BoxerT from './BoxerT';
+    import Match from './Match';
     export default {
         components: {
-            BoxerT
+            BoxerT,
+            Match
         },
         data () {
             return {
-                boxers: []
+                boxers: [],
+                 matches: []
             }
         },
         mounted() {
@@ -24,6 +28,11 @@
             axios.get("/api/boxers").then(function(response){  //vado a richiamare gli elementi del mo database convertiti in una sorta di API
                 self.boxers = response.data;
                 // console.log(self.boxers); 
+            });
+            let that = this;
+            axios.get("/api/matches").then(function(response){
+                that.matches = response.data;
+                console.log(that.matches);
             });
         },
          methods: {

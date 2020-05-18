@@ -1909,6 +1909,8 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BoxerT__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BoxerT */ "./resources/js/components/BoxerT.vue");
+/* harmony import */ var _Match__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Match */ "./resources/js/components/Match.vue");
+//
 //
 //
 //
@@ -1920,13 +1922,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    BoxerT: _BoxerT__WEBPACK_IMPORTED_MODULE_0__["default"]
+    BoxerT: _BoxerT__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Match: _Match__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   data: function data() {
     return {
-      boxers: []
+      boxers: [],
+      matches: []
     };
   },
   mounted: function mounted() {
@@ -1934,6 +1939,11 @@ __webpack_require__.r(__webpack_exports__);
     axios.get("/api/boxers").then(function (response) {
       //vado a richiamare gli elementi del mo database convertiti in una sorta di API
       self.boxers = response.data; // console.log(self.boxers); 
+    });
+    var that = this;
+    axios.get("/api/matches").then(function (response) {
+      that.matches = response.data;
+      console.log(that.matches);
     });
   },
   methods: {
@@ -1957,7 +1967,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _Match__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Match */ "./resources/js/components/Match.vue");
 //
 //
 //
@@ -1976,22 +1985,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+// import Match from './Match';
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Match: _Match__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
+  //  components: {
+  //     Match
+  // },
   props: ['boxer'],
   data: function data() {
-    return {
-      matches: []
+    return {// matches: [],
     };
   },
-  mounted: function mounted() {
-    var that = this;
-    axios.get("/api/matches").then(function (response) {
-      that.matches = response.data; // console.log(that.matches);
-    });
+  mounted: function mounted() {// let that = this;
+    // axios.get("/api/matches").then(function(response){
+    //     that.matches = response.data;
+    //     console.log(that.matches);
+    // });
   }
 });
 
@@ -2017,7 +2025,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['match']
+  props: ['match'] // data:{
+  //     totalMatches: [], 
+  // },
+  // methods: {
+  //     add(){
+  //         this.totalMatches.push(this.match.total_fitghs);
+  //         console.log(totalMatches);  
+  //     }    
+  // }
+
 });
 
 /***/ }),
@@ -38274,7 +38291,14 @@ var render = function() {
           { staticClass: "col-12 boxer-contain" },
           [
             _vm._l(_vm.boxers, function(boxer, index) {
-              return _c("boxerT", { key: index, attrs: { boxer: boxer } })
+              return _c(
+                "boxerT",
+                { key: index, attrs: { boxer: boxer } },
+                _vm._l(_vm.matches, function(match, index) {
+                  return _c("div", { key: index, attrs: { match: match } })
+                }),
+                0
+              )
             }),
             _vm._v(" "),
             _c(
@@ -38328,28 +38352,19 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-8" }, [
-        _c(
-          "div",
-          { staticClass: "card-body" },
-          [
-            _c("h4", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(this.boxer.name))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(this.boxer.birthday))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(this.boxer.description))
-            ]),
-            _vm._v(" "),
-            _vm._l(_vm.matches, function(match, index) {
-              return _c("match", { key: index, attrs: { match: match } })
-            })
-          ],
-          2
-        )
+        _c("div", { staticClass: "card-body" }, [
+          _c("h4", { staticClass: "card-title" }, [
+            _vm._v(_vm._s(this.boxer.name))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(_vm._s(this.boxer.birthday))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "card-text" }, [
+            _vm._v(_vm._s(this.boxer.description))
+          ])
+        ])
       ])
     ])
   ])
