@@ -1,2 +1,2 @@
-<p align="center"><img src="/img/boxe.png" width="400"></p>
+<p align="center"><img src="/img/boxe.png" width="850"></p>
 
